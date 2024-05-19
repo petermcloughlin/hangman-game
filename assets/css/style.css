@@ -34,6 +34,8 @@ body {
     display: flex;
     list-style: none;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 .words .letter {
     width: 28px;
@@ -43,6 +45,10 @@ body {
     text-align: center;  
     font-weight: bold;
     font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+.guess-count { 
     align-items: center;
     justify-content: center;
 }
@@ -75,4 +81,18 @@ body {
 .keyboard button:hover {
     background: #84809d;    
 }
-
+/* Add styling for mobile, tablet and laptop */
+@media (max-width: 756px ) {
+    .container {
+        flex-direction: column;
+        padding: 30px 10px;
+        align-items: center;   
+        align-content: center;     
+    }
+    .hangman img {
+        max-width: 180px;
+    }
+    .game-tools {       
+        align-items: center;
+    }
+}
