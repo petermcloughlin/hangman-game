@@ -53,5 +53,7 @@ body {
     color:#ffffff;
     background:#885ee8;
     width: calc(100% / 9 - 5px);
+    padding: 6px;
+    border: none;
 }
 
