@@ -15,11 +15,43 @@ body {
 .container {
     width: 850px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    /* flex-direction: column; */
+    align-items: flex-end;
     background: #ffffff;
-    border-radius: 20px;
-    padding: 50px;
+    border-radius: 30px;
+    padding: 60px;
     gap: 60px;
+}
+.hangman {
+    max-width: 300px;
+}
+.hangman h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+.words {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+.words .letter {
+    width: 26px;
+    border-bottom: 3px solid black;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.game-tools .guess-count b{
+    color: red;
+}
+.game-tools .keyboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    text-transform: uppercase;
+    color:#ffffff;
+    background:#885ee8;
+    width: calc(100% / 9 - 5px);
 }
 
