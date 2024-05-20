@@ -40,15 +40,11 @@ body {
 .words .letter {
     width: 28px;
     border-bottom: 3px solid black;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
     text-transform: uppercase;
     text-align: center;  
     font-weight: bold;
     font-size: 2rem;
-    align-items: center;
-    justify-content: center;
-}
-.guess-count { 
     align-items: center;
     justify-content: center;
 }
@@ -81,6 +77,26 @@ body {
 .keyboard button:hover {
     background: #84809d;    
 }
+.modal{
+    position: fixed;
+    background: rgba(0,0,0,.5);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal .modal-content {
+    background-color: #ffffff;
+    text-align: center;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 350px;
+}
+
+
 /* Add styling for mobile, tablet and laptop */
 @media (max-width: 756px ) {
     .container {
