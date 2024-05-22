@@ -10,9 +10,14 @@ document.addEventListener("DOMContentLoaded", function(){
         //TESTING    
         // console.log(userInput.value);
         // console.log(userName.innerText);
-        //Close modal
-        let welcomeModal = document.querySelector('welcome-modal');
-        welcomeModal.classList.remove("show");
+
+        //Close welcome modal
+        loadGame();
     });
-    
+
 })
+
+function loadGame(){
+    let welcomeModal = document.querySelector('.welcome-modal');
+    welcomeModal.setAttribute("display", "none");
+}
