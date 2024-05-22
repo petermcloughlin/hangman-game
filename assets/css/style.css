@@ -15,7 +15,7 @@ body {
 }
 .container {
     width: 850px;
-    display: flex;
+    display:flex;
     /* flex-direction: column; */
     align-items: center;
     background: #ffffff;
@@ -25,6 +25,9 @@ body {
 }
 .hangman {
     max-width: 270px;
+}
+.hangman > h1:first-child{
+    color:#5957F5;
 }
 .hangman h1 {
     text-align: center;
@@ -40,7 +43,7 @@ body {
 .words .letter {
     width: 28px;
     border-bottom: 3px solid black;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
     text-transform: uppercase;
     text-align: center;  
     font-weight: bold;
@@ -112,6 +115,56 @@ body {
     cursor: pointer;
 }
 .modal .button:hover {
+    background: #84809d;  
+}
+/*Welome modal*/
+.welcome-modal {      
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;   
+}
+.welcome-modal .content {
+    background: #ffffff;
+    width: 100%;
+    height: 200px;
+    max-width: 300px;    
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 20px;
+}
+.welcome-modal h3 {
+    margin-bottom: 20px;
+    font:bold;
+}
+.welcome-modal input {
+    min-height: 2rem;
+    border: #5957F5 solid 2px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: solid black;
+    font-size: 1rem;
+}
+.welcome-modal button {
+    color: #ffffff;
+    background: #5957F5;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1.5rem;
+    outline: none;   
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    padding: 10px;
+}
+.welcome-modal button:hover {
     background: #84809d;  
 }
 

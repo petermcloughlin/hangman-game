@@ -15,16 +15,24 @@
     <!--Title-->   
     <title>Hangman</title> 
 </head>
-<body>    
+<body>   
+    <div class="welcome-modal">
+        <div class="content">
+            <h3>WELCOME!</h3>
+            <h4>Please enter your name: <input id="user-input" type="text"></h4>
+            <button id="playGame">Play</button>
+        </div>
+    </div> 
     <div class="modal">
         <div class="content">
             <h3>GAME OVER!</h3>
             <p>The correct word was: <b>APPLE</b></p>
             <button class="play-again">Play Again</button>
         </div>
-    </div>
+    </div>     
     <div class="container">        
         <div class="hangman">
+            <h1>Welcome <span id="user-name"></span></h1>
             <h1>HANGMAN</h1>
             <img src="assets/images/hangman-0.svg" alt="hangman-image"/>
         </div>
