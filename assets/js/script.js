@@ -27,3 +27,24 @@ function startGame(){
         }
     }, 300);
 }
+
+//Get random word
+function getRandomWord(){
+
+}
+//Check guessed letter
+function checkLetterExists(inputLetter){
+
+}
+//Increment incorrect score
+function incrementWrongAnswer(){
+
+}
+//Display Success Modal
+function displaySuccess(){
+
+}
+//Display Lost Modal
+function displayLost(){
+    
+}
