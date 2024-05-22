@@ -5,9 +5,14 @@ document.addEventListener("DOMContentLoaded", function(){
     
     playbutton.addEventListener("click", function(){
         let userInput = document.getElementById('user-input');
-        let userName = document.getElementById('user-name');        
-        console.log(userInput.value);
-        console.log(userName.innerText);
+        let userName = document.getElementById('user-name');  
+        userName.innerText = `Welcome ${userInput.value}!`;  
+        //TESTING    
+        // console.log(userInput.value);
+        // console.log(userName.innerText);
+        //Close modal
+        let welcomeModal = document.querySelector('welcome-modal');
+        welcomeModal.classList.remove("show");
     });
     
 })
