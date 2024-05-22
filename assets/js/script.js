@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 function startGame(){   
-    //Close welcome modal 
-     document.getElementsByClassName("welcome-modal")[0].setAttribute("display", "none");
-
+    //Close welcome modal after 500 milliseconds
+    setTimeout(() => {
+        //remove welcome modal
+    }, 500);
 }
