@@ -12,12 +12,12 @@ document.addEventListener("DOMContentLoaded", function(){
         // console.log(userName.innerText);
 
         //Close welcome modal
-        loadGame();
+        startGame();
     });
 
 })
 
-function loadGame(){
-    let welcomeModal = document.querySelector('.welcome-modal');
-    welcomeModal.setAttribute("display", "none");
+function startGame(){   
+    //Close welcome modal 
+     document.getElementsByClassName("welcome-modal")[0].style.visibility = "hidden";    
 }
