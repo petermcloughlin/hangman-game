@@ -167,7 +167,9 @@ body {
 .welcome-modal button:hover {
     background: #84809d;  
 }
-
+.hidden {
+    display: none;
+}
 /* Add styling for mobile, tablet and laptop */
 @media (max-width: 756px ) {
     .container {

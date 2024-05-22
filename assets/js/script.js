@@ -21,5 +21,9 @@ function startGame(){
     //Close welcome modal after 500 milliseconds
     setTimeout(() => {
         //remove welcome modal
-    }, 500);
+        let welcomeModal = document.getElementsByClassName('welcome-modal');
+        for(let welcomeModa of welcomeModal){
+            welcomeModa.classList.add('hidden');
+        }
+    }, 300);
 }
