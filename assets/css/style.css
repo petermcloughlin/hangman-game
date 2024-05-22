@@ -48,7 +48,11 @@ body {
     align-items: center;
     justify-content: center;
 }
-
+.game-tools .guess-count {
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
 .game-tools .guess-count b{
     color: red;
 }
@@ -59,7 +63,7 @@ body {
     justify-content: center;
     text-transform: uppercase;
     margin-top: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 .keyboard button {
     width:calc(100% / 9 - 5px);
