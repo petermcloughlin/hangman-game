@@ -5,13 +5,13 @@ let wordList = [
     'Georgia','Ukraine','Portugal','Switzerland','Poland','Bolivia','Argentina','Brazil','Austria','Romania',
     'Serbia','Montenagro','Bosnia','Hungary','Latvia','Russia','China','Japan','Vietnam','Mongolia',
     'Sudan','Cameroon','Somalia','Nigeria','Libya','Algeria','Tunisia','Egypt','Qatar','Australia',
-    '','','','','','','','','','',
-    '','','','','','','','','','',
-    '','','','','','','','','','',
-    '','','','','','','','','','',
-    '','','','','','','','','','',
-    '','','','','','','','','','',
-    '','','','','','','','','',''];    
+    'Apple','Orange','Kiwi','Banana','Apricot','Tangerine','Tomato','Potatoe','Scallion','Carrots'];
+    // '','','','','','','','','','',
+    // '','','','','','','','','','',
+    // '','','','','','','','','','',
+    // '','','','','','','','','','',
+    // '','','','','','','','','','',
+    // '','','','','','','','','',''];    
 
 //Wait for the DOM to finish loading 
 //Get the button elements and add event listeners to them
@@ -27,28 +27,32 @@ document.addEventListener("DOMContentLoaded", function(){
         // console.log(userName.innerText);
         
         //Close welcome modal
-        startGame();
+        startGame();  
+        //Generate random word
+        getRandomWord();      
     });
 
 })
 
 function startGame(){   
-    //Close welcome modal after 500 milliseconds
+    //Close welcome modal after 300 milliseconds
     setTimeout(() => {
         //remove welcome modal
         let welcomeModal = document.getElementsByClassName('welcome-modal');
         for(let welcomeModa of welcomeModal){
             welcomeModa.classList.add('hidden');
         }
-    }, 300);
-    //Get random word from list
-    let word =  wordList[Math.floor(Math.random() * wordList.length)];
-    console.log(word);
+    }, 300);  
 }
 
 //Get random word
 function getRandomWord(){
-
+    let word =  wordList[Math.floor(Math.random() * wordList.length)];
+    let wordDisplay = document.getElementsByClassName('words')[0];
+    //generate the random word on the html page
+    wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");
+    //Testing
+    console.log(word);
 }
 //Check guessed letter
 function checkLetterExists(inputLetter){

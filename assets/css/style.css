@@ -36,7 +36,7 @@ body {
 .words {
     display: flex;
     list-style: none;
-    gap: 10px;
+    gap: 4px;
     justify-content: center;
     align-items: center;
 }
