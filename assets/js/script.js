@@ -11,8 +11,11 @@ let wordList = [
     // '','','','','','','','','','',
     // '','','','','','','','','','',
     // '','','','','','','','','','',
-    // '','','','','','','','','',''];    
-
+    // '','','','','','','','','',''];  
+//Convert the array to uppercase word list  
+wordList = wordList.map(function(w){
+    return w.toUpperCase();
+});
 //Wait for the DOM to finish loading 
 //Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function(){
@@ -32,16 +35,14 @@ document.addEventListener("DOMContentLoaded", function(){
         getRandomWord();      
     });
 })
+//Store previously generate word in a variable
+let previousWord = "";
 //Add event listener to keyboard buttons
 let keyboardButtons = document.getElementsByTagName('button');
 for(let button of keyboardButtons){
     //console.log(button, button.innerText);
     button.addEventListener('click', clickLetter);
 }
-function clickLetter(){    
-    console.log(this.innerText);
-}
-
 function startGame(){   
     //Close welcome modal after 300 milliseconds
     setTimeout(() => {
@@ -56,16 +57,25 @@ function startGame(){
 //Get random word
 function getRandomWord(){
     let word =  wordList[Math.floor(Math.random() * wordList.length)];
+    //Set previous word value
+    previousWord = word;
     let wordDisplay = document.getElementsByClassName('words')[0];
     //generate the random word on the html page
     wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");
     //Testing
     console.log(word);
 }
-//Check guessed letter
-function checkLetterExists(inputLetter){
-
+//Get innerText of clicked button
+function clickLetter(){    
+    
+    if(previousWord.includes(this.innerText)){
+        console.log(this.innerText + " exists in the word");
+    }
+    else{
+        console.log(this.innerText + " is NOT in the word");
+    }
 }
+
 //Increment incorrect score
 function incrementWrongAnswer(){
 
