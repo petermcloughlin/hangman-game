@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 })
 //Store previously generate word in a variable
-let previousWord = "";
+let theWord = "";
 //Add event listener to keyboard buttons
 let keyboardButtons = document.getElementsByTagName('button');
 for(let button of keyboardButtons){
@@ -58,7 +58,7 @@ function startGame(){
 function getRandomWord(){
     let word =  wordList[Math.floor(Math.random() * wordList.length)];
     //Set previous word value
-    previousWord = word;
+    theWord = word;
     let wordDisplay = document.getElementsByClassName('words')[0];
     //generate the random word on the html page
     wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");
@@ -66,19 +66,21 @@ function getRandomWord(){
     console.log(word);
 }
 //Get innerText of clicked button
-function clickLetter(){    
+function clickLetter(){   
     
-    if(previousWord.includes(this.innerText)){
+    if(theWord.includes(this.innerText)){
         console.log(this.innerText + " exists in the word");
+        //loop through letters in the word and display in html
     }
     else{
         console.log(this.innerText + " is NOT in the word");
+        //incrementWrongAnswer()
     }
 }
 
 //Increment incorrect score
 function incrementWrongAnswer(){
-
+    
 }
 //Display Success Modal
 function displaySuccess(){
