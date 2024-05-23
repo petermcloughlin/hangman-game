@@ -31,8 +31,16 @@ document.addEventListener("DOMContentLoaded", function(){
         //Generate random word
         getRandomWord();      
     });
-
 })
+//Add event listener to keyboard buttons
+let keyboardButtons = document.getElementsByTagName('button');
+for(let button of keyboardButtons){
+    //console.log(button, button.innerText);
+    button.addEventListener('click', clickLetter);
+}
+function clickLetter(){    
+    console.log(this.innerText);
+}
 
 function startGame(){   
     //Close welcome modal after 300 milliseconds
