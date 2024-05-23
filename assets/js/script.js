@@ -37,6 +37,9 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 //Store previously generate word in a variable
 let theWord = "";
+let maxTries = 6; //Maximum number of guesses equating to hangman body parts
+let incorrectGuessCount = -1; //to account for play button click
+
 //Add event listener to keyboard buttons
 let keyboardButtons = document.getElementsByTagName('button');
 for(let button of keyboardButtons){
@@ -70,17 +73,33 @@ function clickLetter(){
     
     if(theWord.includes(this.innerText)){
         console.log(this.innerText + " exists in the word");
-        //loop through letters in the word and display in html
+        //loop through letters in the word and display in html...used spread operator this time.
+        [...theWord].forEach((character, index) => {
+            if(character === this.innerText){
+                let wordDisplay = document.getElementsByClassName('words')[0];
+                wordDisplay.querySelectorAll('li')[index].innerText = character;
+            }
+        })
+        // let wordArray = theWord.split(''); // [,,,,]
+        // for(let i=0; i < wordArray.length; i++){
+        //     let indexPosition = theWord.indexOf(wordArray[i]);
+        //     let wordDisplay = document.getElementsByClassName('words')[0];
+        //     if(wordArray[i] === this.innerText){
+        //         wordDisplay.innerHTML = `<li class="letter">${wordArray[i]}</li>`;
+        //     }
+        // }
     }
     else{
         console.log(this.innerText + " is NOT in the word");
-        //incrementWrongAnswer()
+        incrementWrongAnswer();
     }
 }
 
 //Increment incorrect score
 function incrementWrongAnswer(){
-    
+    incorrectGuessCount++;
+    let guessCount = document.querySelector('.guess-count b');
+    guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
 }
 //Display Success Modal
 function displaySuccess(){
