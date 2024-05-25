@@ -84,7 +84,8 @@ body {
 .keyboard button:hover {
     background: #84809d;    
 }
-.modal {      
+
+.playagain-modal {      
     position: fixed;
     display: none;
     align-items: center;
@@ -95,7 +96,7 @@ body {
     top: 0;
     left: 0;   
 }
-.modal .content {
+.playagain-modal .content {
     background: #ffffff;
     width: 100%;
     max-width: 350px;
@@ -103,7 +104,7 @@ body {
     border-radius: 20px;
     padding: 20px;
 }
-.modal button {
+.playagain-modal button {
     color: #ffffff;
     background: #5957F5;
     text-transform: uppercase;
@@ -114,7 +115,7 @@ body {
     border: none;
     cursor: pointer;
 }
-.modal .button:hover {
+.playagain-modal .button:hover {
     background: #84809d;  
 }
 /*Welome modal*/

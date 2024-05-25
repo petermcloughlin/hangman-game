@@ -16,6 +16,12 @@ let wordList = [
 wordList = wordList.map(function(w){
     return w.toUpperCase();
 });
+//Store previously generate word in a variable
+let theWord = "";
+let maxTries = 6; //Maximum number of guesses equating to hangman body parts
+let incorrectGuessCount = -1; //to account for play button click
+let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
+let correctLetters = []; //array for collecting correctly guessed letters
 //Wait for the DOM to finish loading 
 //Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function(){
@@ -30,23 +36,19 @@ document.addEventListener("DOMContentLoaded", function(){
         // console.log(userName.innerText);
         
         //Close welcome modal
-        startGame();  
-        //Generate random word
-        getRandomWord();      
+        startGame(); 
+              
     });
 })
-//Store previously generate word in a variable
-let theWord = "";
-let maxTries = 6; //Maximum number of guesses equating to hangman body parts
-let incorrectGuessCount = -1; //to account for play button click
-let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
 
 //Add event listener to keyboard buttons
 let keyboardButtons = document.getElementsByTagName('button');
 for(let button of keyboardButtons){
     //console.log(button, button.innerText);
-    button.addEventListener('click', clickLetter);
+    button.addEventListener('click', clickLetter);   
 }
+
+//Start game function
 function startGame(){   
     //Close welcome modal after 300 milliseconds
     setTimeout(() => {
@@ -56,6 +58,8 @@ function startGame(){
             welcomeModa.classList.add('hidden');
         }
     }, 300);  
+    //Generate random word
+    getRandomWord();
 }
 
 //Get random word
@@ -97,19 +101,29 @@ function clickLetter(){
         //dynamically update the image based on inccorect guess count
         hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
     }
+    
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
+    //If guess count = 6 then game over
+    if(incorrectGuessCount === maxTries){
+        return displaySuccess(false);
+    }
+    if(correctLetters.length === theWord.length){
+        return displaySuccess(true);
+    }
+    
 }
 
 //Increment incorrect score
 function incrementWrongAnswer(){
     incorrectGuessCount++;    
 }
-//Display Success Modal
-function displaySuccess(){
 
+//Display Success Modal
+function displaySuccess(isWin){
+    // return modified playagain modal to success modal
 }
 //Display Lost Modal
-function displayLost(){
-
+function displayLost(isWin){
+    // return modified playagain modal to lost modal
 }
