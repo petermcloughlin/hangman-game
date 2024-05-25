@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function(){
 let theWord = "";
 let maxTries = 6; //Maximum number of guesses equating to hangman body parts
 let incorrectGuessCount = -1; //to account for play button click
+let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
 
 //Add event listener to keyboard buttons
 let keyboardButtons = document.getElementsByTagName('button');
@@ -91,15 +92,18 @@ function clickLetter(){
     }
     else{
         console.log(this.innerText + " is NOT in the word");
-        incrementWrongAnswer();
+        incrementWrongAnswer();   
+        console.log(incorrectGuessCount);   //Testing the count  
+        //dynamically update the image based on inccorect guess count
+        hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
     }
+    let guessCount = document.querySelector('.guess-count b');
+    guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
 }
 
 //Increment incorrect score
 function incrementWrongAnswer(){
-    incorrectGuessCount++;
-    let guessCount = document.querySelector('.guess-count b');
-    guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
+    incorrectGuessCount++;    
 }
 //Display Success Modal
 function displaySuccess(){
