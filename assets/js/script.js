@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 //Add event listener to keyboard buttons
-let keyboardButtons = document.getElementsByClassName('keyboard');
+let keyboardButtons = document.getElementsByTagName('button');
 for(let button of keyboardButtons){
     //console.log(button, button.innerText);
     button.addEventListener('click', clickLetter);   
