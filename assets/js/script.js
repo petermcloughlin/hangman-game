@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 //Add event listener to keyboard buttons
-let keyboardButtons = document.getElementsByTagName('button');
+let keyboardButtons = document.getElementsByTagName('.keyboard button');
 for(let button of keyboardButtons){
     //console.log(button, button.innerText);
     button.addEventListener('click', clickLetter);   
@@ -107,7 +107,7 @@ function clickLetter(){
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
     //If guess count = 6 then game over
-    if((incorrectGuessCount - 1) === maxTries){
+    if(incorrectGuessCount === maxTries){
         console.log('Total Incorrect guesses: ' + incorrectGuessCount);
         displaySuccess();
     }
