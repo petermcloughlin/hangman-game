@@ -81,9 +81,9 @@ function clickLetter(){
         //loop through letters in the word and display in html...used spread operator this time.
         [...theWord].forEach((character, index) => {
             if(character === this.innerText){
-                let wordDisplay = document.getElementsByClassName('words')[0];
-                wordDisplay.querySelectorAll('li')[index].innerText = character;
                 correctLetters.push(character);
+                let wordDisplay = document.getElementsByClassName('words')[0];
+                wordDisplay.querySelectorAll('li')[index].innerText = character;                
             }
         })
 
@@ -107,7 +107,7 @@ function clickLetter(){
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
     //If guess count = 6 then game over
-    if(incorrectGuessCount === maxTries){
+    if((incorrectGuessCount - 1) === maxTries){
         console.log('Total Incorrect guesses: ' + incorrectGuessCount);
         displaySuccess();
     }
