@@ -109,11 +109,11 @@ function clickLetter(){
     //If guess count = 6 then game over
     if(incorrectGuessCount === maxTries){
         console.log('Total Incorrect guesses: ' + incorrectGuessCount);
-        displaySuccess();
+        displayLost();
     }
     if(correctLetters.length === theWord.length){
         console.log('Total correct letters: ' + correctLetters.length)
-        displayLost();
+        displaySuccess();
     }
     
 }
