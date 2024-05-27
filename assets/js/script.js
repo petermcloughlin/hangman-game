@@ -83,8 +83,10 @@ function clickLetter(){
             if(character === this.innerText){
                 let wordDisplay = document.getElementsByClassName('words')[0];
                 wordDisplay.querySelectorAll('li')[index].innerText = character;
+                correctLetters.push(character);
             }
         })
+
         // let wordArray = theWord.split(''); // [,,,,]
         // for(let i=0; i < wordArray.length; i++){
         //     let indexPosition = theWord.indexOf(wordArray[i]);
@@ -106,10 +108,12 @@ function clickLetter(){
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
     //If guess count = 6 then game over
     if(incorrectGuessCount === maxTries){
-        return displaySuccess(false);
+        console.log('Total Incorrect guesses: ' + incorrectGuessCount);
+        displaySuccess();
     }
     if(correctLetters.length === theWord.length){
-        return displaySuccess(true);
+        console.log('Total correct letters: ' + correctLetters.length)
+        displayLost();
     }
     
 }
@@ -119,11 +123,13 @@ function incrementWrongAnswer(){
     incorrectGuessCount++;    
 }
 
-//Display Success Modal
-function displaySuccess(isWin){
+//Display Success Modal, Test with alert function first
+function displaySuccess(){
     // return modified playagain modal to success modal
+    alert('Congrats, you found the word.');
 }
 //Display Lost Modal
-function displayLost(isWin){
+function displayLost(){
     // return modified playagain modal to lost modal
+    alert('Hard luck, do you want to play again?');
 }
