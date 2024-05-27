@@ -80,10 +80,11 @@ function clickLetter(){
         console.log(this.innerText + " exists in the word");
         //loop through letters in the word and display in html...used spread operator this time.
         [...theWord].forEach((character, index) => {
-            if(character === this.innerText){
-                correctLetters.push(character);
+            if(character === this.innerText){                
+                correctLetters.push(character);  //Testing the count 
                 let wordDisplay = document.getElementsByClassName('words')[0];
-                wordDisplay.querySelectorAll('li')[index].innerText = character;                
+                wordDisplay.querySelectorAll('li')[index].innerText = character;    
+                console.log(correctLetters.length);            
             }
         })
 
