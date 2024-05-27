@@ -19,7 +19,7 @@ wordList = wordList.map(function(w){
 //Store previously generate word in a variable
 let theWord = "";
 let maxTries = 6; //Maximum number of guesses equating to hangman body parts
-let incorrectGuessCount = -1; //to account for play button click
+let incorrectGuessCount = 0; //to account for play button click
 let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
 let correctLetters = []; //array for collecting correctly guessed letters
 //Wait for the DOM to finish loading 
