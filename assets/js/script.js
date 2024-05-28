@@ -30,11 +30,8 @@ document.addEventListener("DOMContentLoaded", function(){
     playbutton.addEventListener("click", function(){
         let userInput = document.getElementById('user-input');
         let userName = document.getElementById('user-name');  
-        userName.innerText = `Welcome ${userInput.value}!`;  
-        //TESTING    
-        // console.log(userInput.value);
-        // console.log(userName.innerText);
-        
+        userName.innerText = `Welcome ${userInput.value}!`;
+               
         //Close welcome modal
         startGame(); 
               
@@ -77,8 +74,7 @@ function getRandomWord(){
 function clickLetter(){   
     
     if(theWord.includes(this.innerText)){
-        console.log(this.innerText + " exists in the word");
-        //loop through letters in the word and display in html...used spread operator this time.
+        console.log(this.innerText + " exists in the word");        
         [...theWord].forEach((character, index) => {
             if(character === this.innerText){                
                 correctLetters.push(character);  //Testing the count 
@@ -87,21 +83,12 @@ function clickLetter(){
                 console.log(correctLetters.length);            
             }
         })
-
-        // let wordArray = theWord.split(''); // [,,,,]
-        // for(let i=0; i < wordArray.length; i++){
-        //     let indexPosition = theWord.indexOf(wordArray[i]);
-        //     let wordDisplay = document.getElementsByClassName('words')[0];
-        //     if(wordArray[i] === this.innerText){
-        //         wordDisplay.innerHTML = `<li class="letter">${wordArray[i]}</li>`;
-        //     }
-        // }
+  
     }
     else{
         console.log(this.innerText + " is NOT in the word");
         incrementWrongAnswer();   
-        console.log(incorrectGuessCount);   //Testing the count  
-        //dynamically update the image based on inccorect guess count
+        console.log(incorrectGuessCount);   //Testing the count      
         hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
     }
     
@@ -109,28 +96,34 @@ function clickLetter(){
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
     //If guess count = 6 then game over
     if(incorrectGuessCount === maxTries){
-        console.log('Total Incorrect guesses: ' + incorrectGuessCount);
-        displayLost();
+        console.log('Total Incorrect guesses: ' + incorrectGuessCount);        
+        displayLost();             
     }
     if(correctLetters.length === theWord.length){
-        console.log('Total correct letters: ' + correctLetters.length)
-        displaySuccess();
+        console.log('Total correct letters: ' + correctLetters.length)        
+        displaySuccess();              
     }
     
 }
 
 //Increment incorrect score
-function incrementWrongAnswer(){
-    incorrectGuessCount++;    
+function incrementWrongAnswer(){    
+    incorrectGuessCount++;      
 }
 
 //Display Success Modal, Test with alert function first
 function displaySuccess(){
     // return modified playagain modal to success modal
-    alert('Congrats, you found the word.');
+    setTimeout(() => {
+        alert('Congrats, you found the word.');
+    }, 1000);
+    
 }
 //Display Lost Modal
 function displayLost(){
     // return modified playagain modal to lost modal
-    alert('Hard luck, do you want to play again?');
+    setTimeout(() => {
+        alert('Hard luck, do you want to play again?');
+    }, 1000);
+    
 }
