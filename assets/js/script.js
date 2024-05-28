@@ -118,7 +118,9 @@ function displaySuccess(){
     setTimeout(() => {
         confirm('Congrats! You found the word. Do you want to play again?');        
     }, 1000);
-    
+    if(confirm === true){
+        resetGame();
+    }
 }
 //Display Lost Modal
 function displayLost(){
@@ -126,7 +128,9 @@ function displayLost(){
     setTimeout(() => {
         confirm('Hard luck, do you want to play again?');
     }, 1000);
-    
+    if(confirm === true){
+        resetGame();
+    }
 }
 //Reset game
 function resetGame(){
