@@ -116,21 +116,20 @@ function incrementWrongAnswer(){
 function displaySuccess(){
     // return modified playagain modal to success modal
     setTimeout(() => {
-        confirm('Congrats! You found the word. Do you want to play again?');        
-    }, 1000);
-    if(confirm === true){
-        resetGame();
-    }
+        if(confirm('Congrats! You found the word. Do you want to play again?')){
+            resetGame();
+        }        
+    }, 1000);    
 }
 //Display Lost Modal
 function displayLost(){
     // return modified playagain modal to lost modal
     setTimeout(() => {
-        confirm('Hard luck, do you want to play again?');
+        if(confirm('Hard luck! Do you want to play again?')){
+            resetGame();
+        }
     }, 1000);
-    if(confirm === true){
-        resetGame();
-    }
+    
 }
 //Reset game
 function resetGame(){
