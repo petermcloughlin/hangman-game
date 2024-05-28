@@ -116,7 +116,7 @@ function incrementWrongAnswer(){
 function displaySuccess(){
     // return modified playagain modal to success modal
     setTimeout(() => {
-        alert('Congrats, you found the word.');
+        confirm('Congrats! You found the word. Do you want to play again?');        
     }, 1000);
     
 }
@@ -124,7 +124,17 @@ function displaySuccess(){
 function displayLost(){
     // return modified playagain modal to lost modal
     setTimeout(() => {
-        alert('Hard luck, do you want to play again?');
+        confirm('Hard luck, do you want to play again?');
     }, 1000);
     
+}
+//Reset game
+function resetGame(){
+    correctLetters = [];
+    incorrectGuessCount = 0;
+    hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
+    guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
+    wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join(""); 
+    keyboardButtons.forEach(btn => btn.disabled = false);
+
 }
