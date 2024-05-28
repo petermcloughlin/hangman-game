@@ -116,7 +116,7 @@ function incrementWrongAnswer(){
 function displaySuccess(){
     // return modified playagain modal to success modal
     setTimeout(() => {
-        if(confirm('Congrats! You found the word. Do you want to play again?')){
+        if(confirm('Congrats! You found the word. Do you want to play again?')==true){            
             resetGame();
         }        
     }, 1000);    
@@ -125,7 +125,7 @@ function displaySuccess(){
 function displayLost(){
     // return modified playagain modal to lost modal
     setTimeout(() => {
-        if(confirm('Hard luck! Do you want to play again?')){
+        if(confirm('Hard luck! Do you want to play again?')==true){
             resetGame();
         }
     }, 1000);
