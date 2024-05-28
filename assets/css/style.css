@@ -84,7 +84,10 @@ body {
 .keyboard button:hover {
     background: #84809d;    
 }
-
+.keyboard button:disabled{
+    opacity: 0.6;
+    pointer-events: none;
+}
 .playagain-modal {      
     position: fixed;
     display: none;

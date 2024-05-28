@@ -79,11 +79,12 @@ function clickLetter(){
             if(character === this.innerText){                
                 correctLetters.push(character);  //Testing the count 
                 let wordDisplay = document.getElementsByClassName('words')[0];
-                wordDisplay.querySelectorAll('li')[index].innerText = character;    
+                wordDisplay.querySelectorAll('li')[index].innerText = character;   
+                wordDisplay.querySelectorAll('li')[index].classList.add('guessed'); 
                 console.log(correctLetters.length);            
             }
         })
-  
+        
     }
     else{
         console.log(this.innerText + " is NOT in the word");
@@ -91,7 +92,7 @@ function clickLetter(){
         console.log(incorrectGuessCount);   //Testing the count      
         hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
     }
-    
+    this.disabled = true;
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
     //If guess count = 6 then game over
