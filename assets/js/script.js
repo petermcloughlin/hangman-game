@@ -136,8 +136,12 @@ function resetGame(){
     correctLetters = [];
     incorrectGuessCount = 0;
     hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
+    let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
+    let wordDisplay = document.getElementsByClassName('words')[0];
     wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join(""); 
-    keyboardButtons.forEach(btn => btn.disabled = false);
-
+    let keyboardButtons = document.getElementsByClassName('keybtn');
+    for(let btn of keyboardButtons){
+        btn.disabled = false;
+    }
 }
