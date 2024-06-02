@@ -58,8 +58,7 @@ function getRandomWord(){
 }
 
 function clickLetter(){     
-    if(theWord.includes(this.innerText)){
-        console.log(this.innerText + " exists in the word");        
+    if(theWord.includes(this.innerText)){              
         [...theWord].forEach((character, index) => {
             if(character === this.innerText){                
                 correctLetters.push(character);  
@@ -91,7 +90,7 @@ function incrementWrongAnswer(){
 
 function displaySuccess(){    
     setTimeout(() => {
-        if(confirm(`Well done!\n You found the word : ${theWord}\n Do you want to play again?\n`) ==  true)  {
+        if(confirm(`Well done!\nYou found the word : ${theWord}\nDo you want to play again?`) ==  true)  {
             resetGame();
         }            
     }, 1000);    
@@ -99,7 +98,7 @@ function displaySuccess(){
 
 function displayLost(){    
     setTimeout(() => {
-        if(confirm(`Hard luck!\n You found the word : ${theWord}\n  Do you want to play again?\n`) == true){
+        if(confirm(`Hard luck!\nYou found the word : ${theWord}\nDo you want to play again?`) == true){
             resetGame();
         }
     }, 1000);
