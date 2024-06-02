@@ -22,6 +22,10 @@ let maxTries = 6; //Maximum number of guesses equating to hangman body parts
 let incorrectGuessCount = 0; //to account for play button click
 let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
 let correctLetters = []; //array for collecting correctly guessed letters
+let playAgainModal = document.querySelector('.playagain-modal');
+let playAgainH3 = document.querySelector('.playagain-modal h3');
+let playAgainCorrectWord = document.querySelector('.random-word');
+let playAgainBtn = document.querySelector('.play-again');
 //Wait for the DOM to finish loading 
 //Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function(){
@@ -33,8 +37,7 @@ document.addEventListener("DOMContentLoaded", function(){
         userName.innerText = `Welcome ${userInput.value}!`;
                
         //Close welcome modal
-        startGame(); 
-              
+        startGame();               
     });
 })
 
@@ -44,7 +47,16 @@ for(let button of keyboardButtons){
     //console.log(button, button.innerText);
     button.addEventListener('click', clickLetter);   
 }
-
+//Add event listener to the play again button
+playAgainBtn.addEventListener("click", hidePlayAgainModal);
+//Add hidePlayAgainModal function
+function hidePlayAgainModal(){
+    setTimeout(() => {
+        playAgainModal.classList.add('hidden');
+    }, 300);
+    //Generate random word
+    getRandomWord();
+}
 //Start game function
 function startGame(){   
     //Close welcome modal after 300 milliseconds
@@ -116,10 +128,10 @@ function incrementWrongAnswer(){
 function displaySuccess(){
     // return modified playagain modal to success modal
     setTimeout(() => {
-        if(confirm('Congrats! You found the word. Do you want to play again?')==true){            
-            resetGame();
-        }        
-    }, 1000);    
+        playAgainH3.innerText = 'Well Done!';
+        playAgainCorrectWord.innerText = `${theWord}`;
+        playAgainModal.classList.add('show');          
+    }, 800);    
 }
 //Display Lost Modal
 function displayLost(){
@@ -128,7 +140,7 @@ function displayLost(){
         if(confirm('Hard luck! Do you want to play again?')==true){
             resetGame();
         }
-    }, 1000);
+    }, 800);
     
 }
 //Reset game
