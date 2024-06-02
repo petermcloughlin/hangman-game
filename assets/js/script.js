@@ -22,7 +22,7 @@ let maxTries = 6; //Maximum number of guesses equating to hangman body parts
 let incorrectGuessCount = 0; //to account for play button click
 let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
 let correctLetters = []; //array for collecting correctly guessed letters
-let playAgainModal = document.querySelector('.playagain-modal');
+let playAgainModal = document.getElementsByClassName('playagain-modal');
 let playAgainH3 = document.querySelector('.playagain-modal h3');
 let playAgainCorrectWord = document.querySelector('.random-word');
 let playAgainBtn = document.querySelector('.play-again');
@@ -130,7 +130,10 @@ function displaySuccess(){
     setTimeout(() => {
         playAgainH3.innerText = 'Well Done!';
         playAgainCorrectWord.innerText = `${theWord}`;
-        playAgainModal.classList.add('show');          
+        for(let playagainModa of playAgainModal){
+            playagainModa.classList.add('hidden');
+        }
+        playagainModa.classList.add('show');          
     }, 800);    
 }
 //Display Lost Modal
