@@ -98,7 +98,7 @@ function displaySuccess(){
 
 function displayLost(){    
     setTimeout(() => {
-        if(confirm(`Hard luck!\nYou found the word : ${theWord}\nDo you want to play again?`) == true){
+        if(confirm(`Hard luck!\nThe correct word was: ${theWord}\nDo you want to play again?`) == true){
             resetGame();
         }
     }, 1000);
