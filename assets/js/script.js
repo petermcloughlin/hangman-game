@@ -118,7 +118,7 @@ function displaySuccess(){
         if(confirm(` Well done!\n You found the word : ${theWord}\n Do you want to play again?\n`) ==  true)  {
             resetGame();
         }            
-    }, 800);    
+    }, 1000);    
 }
 //Display Lost Modal
 function displayLost(){
@@ -127,7 +127,7 @@ function displayLost(){
         if(confirm(` Hard luck!\n You found the word : ${theWord}\n  Do you want to play again?\n'`) == true){
             resetGame();
         }
-    }, 800);
+    }, 1000);
     
 }
 //Reset game
