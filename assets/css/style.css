@@ -15,8 +15,7 @@ body {
 }
 .container {
     width: 850px;
-    display:flex;
-    /* flex-direction: column; */
+    display:flex;    
     align-items: center;
     background: #ffffff;
     border-radius: 30px;
@@ -36,12 +35,12 @@ body {
 .words {
     display: flex;
     list-style: none;
-    gap: 2px;
+    gap: 3px;
     justify-content: center;
     align-items: center;
 }
 .words .letter {
-    width: 20px;
+    width: 22px;
     border-bottom: 3px solid black;
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -88,7 +87,7 @@ body {
     opacity: 0.6;
     pointer-events: none;
 }
-.playagain-modal {      
+/* .playagain-modal {      
     position: fixed;
     display: none;
     align-items: center;
@@ -120,7 +119,7 @@ body {
 }
 .playagain-modal .button:hover {
     background: #84809d;  
-}
+} */
 /*Welome modal*/
 .welcome-modal {      
     position: fixed;

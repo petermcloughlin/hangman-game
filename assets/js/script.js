@@ -1,4 +1,3 @@
-//Generate word list
 let wordList = [
     'Canada','Ireland','England','Scotland','Wales','Denmark','Sweden','Finland','Norway','Netherlands',
     'France','Spain','Germany','Italy','Croatia','USA','Mexico','Cuba','Estonia','Lithuania',
@@ -12,19 +11,17 @@ let wordList = [
     // '','','','','','','','','','',
     // '','','','','','','','','','',
     // '','','','','','','','','',''];  
-//Convert the array to uppercase word list  
+
 wordList = wordList.map(function(w){
     return w.toUpperCase();
 });
-//Store previously generate word in a variable
-let theWord = "";
-let maxTries = 6; //Maximum number of guesses equating to hangman body parts
-let incorrectGuessCount = 0; //to account for play button click
-let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
-let correctLetters = []; //array for collecting correctly guessed letters
 
-//Wait for the DOM to finish loading 
-//Get the button elements and add event listeners to them
+let theWord = "";
+let maxTries = 6; 
+let incorrectGuessCount = 0; 
+let hangmanBody = document.querySelector('.hangman img'); 
+let correctLetters = []; 
+
 document.addEventListener("DOMContentLoaded", function(){
     let playbutton = document.getElementById("play-game");
     
@@ -37,109 +34,87 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 })
 
-//Add event listener to keyboard buttons
 let keyboardButtons = document.getElementsByClassName('keybtn');
-for(let button of keyboardButtons){
-    //console.log(button, button.innerText);
+for(let button of keyboardButtons){ 
     button.addEventListener('click', clickLetter);   
 }
 
-//Start game function
-function startGame(){   
-    //Close welcome modal after 300 milliseconds
-    setTimeout(() => {
-        //remove welcome modal
+function startGame(){  
+    setTimeout(() => {        
         let welcomeModal = document.getElementsByClassName('welcome-modal');
         for(let welcomeModa of welcomeModal){
             welcomeModa.classList.add('hidden');
         }
     }, 300);  
-    //Generate random word
+   
     getRandomWord();
 }
 
-//Get random word
 function getRandomWord(){
-    let word =  wordList[Math.floor(Math.random() * wordList.length)];
-    //Set previous word value
+    let word =  wordList[Math.floor(Math.random() * wordList.length)];    
     theWord = word;
-    let wordDisplay = document.getElementsByClassName('words')[0];
-    //generate the random word on the html page
-    wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");
-    //Testing
-    console.log(word);
+    let wordDisplay = document.getElementsByClassName('words')[0];   
+    wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join("");    
 }
-//Get innerText of clicked button
-function clickLetter(){   
-    
+
+function clickLetter(){     
     if(theWord.includes(this.innerText)){
         console.log(this.innerText + " exists in the word");        
         [...theWord].forEach((character, index) => {
             if(character === this.innerText){                
-                correctLetters.push(character);  //Testing the count 
+                correctLetters.push(character);  
                 let wordDisplay = document.getElementsByClassName('words')[0];
                 wordDisplay.querySelectorAll('li')[index].innerText = character;   
-                wordDisplay.querySelectorAll('li')[index].classList.add('guessed'); 
-                console.log(correctLetters.length);            
+                wordDisplay.querySelectorAll('li')[index].classList.add('guessed');                          
             }
-        })
-        
+        })        
     }
-    else{
-        console.log(this.innerText + " is NOT in the word");
-        incrementWrongAnswer();   
-        console.log(incorrectGuessCount);   //Testing the count      
+    else{        
+        incrementWrongAnswer();      
         hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
     }
     this.disabled = true;
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
-    //If guess count = 6 then game over
-    if(incorrectGuessCount === maxTries){
-        console.log('Total Incorrect guesses: ' + incorrectGuessCount);        
+    
+    if(incorrectGuessCount === maxTries){               
         displayLost();             
     }
-    if(correctLetters.length === theWord.length){
-        console.log('Total correct letters: ' + correctLetters.length)        
+    if(correctLetters.length === theWord.length){               
         displaySuccess();              
-    }
-    
+    }    
 }
 
-//Increment incorrect score
 function incrementWrongAnswer(){    
     incorrectGuessCount++;      
 }
 
-//Display Success Modal, Test with alert function first
-function displaySuccess(){
-    // return modified playagain modal to success modal
+function displaySuccess(){    
     setTimeout(() => {
-        if(confirm(` Well done!\n You found the word : ${theWord}\n Do you want to play again?\n`) ==  true)  {
+        if(confirm(`Well done!\n You found the word : ${theWord}\n Do you want to play again?\n`) ==  true)  {
             resetGame();
         }            
     }, 1000);    
 }
-//Display Lost Modal
-function displayLost(){
-    // return modified playagain modal to lost modal
+
+function displayLost(){    
     setTimeout(() => {
-        if(confirm(` Hard luck!\n You found the word : ${theWord}\n  Do you want to play again?\n'`) == true){
+        if(confirm(`Hard luck!\n You found the word : ${theWord}\n  Do you want to play again?\n`) == true){
             resetGame();
         }
     }, 1000);
     
 }
-//Reset game
+
 function resetGame(){
     correctLetters = [];
     incorrectGuessCount = 0;
     hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
+
     getRandomWord();
-    // let wordDisplay = document.getElementsByClassName('words')[0];
-    // wordDisplay.innerHTML = word.split("").map(() => `<li class="letter"></li>`).join(""); 
+    
     let keyboardButtons = document.getElementsByClassName('keybtn');
     for(let btn of keyboardButtons){
         btn.disabled = false;
