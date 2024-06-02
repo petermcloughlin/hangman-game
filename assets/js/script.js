@@ -22,10 +22,7 @@ let maxTries = 6; //Maximum number of guesses equating to hangman body parts
 let incorrectGuessCount = 0; //to account for play button click
 let hangmanBody = document.querySelector('.hangman img'); //get the HTML hangman image
 let correctLetters = []; //array for collecting correctly guessed letters
-let playAgainModal = document.getElementsByClassName('playagain-modal');
-let playAgainH3 = document.querySelector('.playagain-modal h3');
-let playAgainCorrectWord = document.querySelector('.random-word');
-let playAgainBtn = document.querySelector('.play-again');
+
 //Wait for the DOM to finish loading 
 //Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function(){
@@ -35,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let userInput = document.getElementById('user-input');
         let userName = document.getElementById('user-name');  
         userName.innerText = `Welcome ${userInput.value}!`;
-               
-        //Close welcome modal
+        
         startGame();               
     });
 })
@@ -47,16 +43,7 @@ for(let button of keyboardButtons){
     //console.log(button, button.innerText);
     button.addEventListener('click', clickLetter);   
 }
-//Add event listener to the play again button
-playAgainBtn.addEventListener("click", hidePlayAgainModal);
-//Add hidePlayAgainModal function
-function hidePlayAgainModal(){
-    setTimeout(() => {
-        playAgainModal.classList.add('hidden');
-    }, 300);
-    //Generate random word
-    getRandomWord();
-}
+
 //Start game function
 function startGame(){   
     //Close welcome modal after 300 milliseconds
@@ -128,18 +115,16 @@ function incrementWrongAnswer(){
 function displaySuccess(){
     // return modified playagain modal to success modal
     setTimeout(() => {
-        playAgainH3.innerText = 'Well Done!';
-        playAgainCorrectWord.innerText = `${theWord}`;
-        for(let playagainModa of playAgainModal){
-            playagainModa.classList.add('show');
-        }                
+        if(confirm(`Well done!\n You found the word : ${theWord}\n Do you want to play again?\n`) ==  false)  {
+            resetGame();
+        }            
     }, 800);    
 }
 //Display Lost Modal
 function displayLost(){
     // return modified playagain modal to lost modal
     setTimeout(() => {
-        if(confirm('Hard luck! Do you want to play again?')==true){
+        if(confirm(`Hard luck!\n You found the word : ${theWord}\n  Do you want to play again?\n'`) == true){
             resetGame();
         }
     }, 800);
