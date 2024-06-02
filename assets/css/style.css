@@ -36,12 +36,12 @@ body {
 .words {
     display: flex;
     list-style: none;
-    gap: 4px;
+    gap: 2px;
     justify-content: center;
     align-items: center;
 }
 .words .letter {
-    width: 28px;
+    width: 20px;
     border-bottom: 3px solid black;
     margin-bottom: 20px;
     text-transform: uppercase;
