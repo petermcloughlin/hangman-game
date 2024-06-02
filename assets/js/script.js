@@ -131,9 +131,8 @@ function displaySuccess(){
         playAgainH3.innerText = 'Well Done!';
         playAgainCorrectWord.innerText = `${theWord}`;
         for(let playagainModa of playAgainModal){
-            playagainModa.classList.add('hidden');
-        }
-        playagainModa.classList.add('show');          
+            playagainModa.classList.add('show');
+        }                
     }, 800);    
 }
 //Display Lost Modal
