@@ -87,39 +87,6 @@ body {
     opacity: 0.6;
     pointer-events: none;
 }
-/* .playagain-modal {      
-    position: fixed;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0,0,0,0.5);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;   
-}
-.playagain-modal .content {
-    background: #ffffff;
-    width: 100%;
-    max-width: 350px;
-    text-align: center;
-    border-radius: 20px;
-    padding: 20px;
-}
-.playagain-modal button {
-    color: #ffffff;
-    background: #5957F5;
-    text-transform: uppercase;
-    border-radius: 5px;
-    font-weight: 500;
-    font-size: 1.5rem;
-    outline: none;   
-    border: none;
-    cursor: pointer;
-}
-.playagain-modal .button:hover {
-    background: #84809d;  
-} */
 /*Welome modal*/
 .welcome-modal {      
     position: fixed;
