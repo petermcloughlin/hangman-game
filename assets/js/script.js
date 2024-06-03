@@ -4,17 +4,14 @@ let wordList = [
     'Georgia','Ukraine','Portugal','Switzerland','Poland','Bolivia','Argentina','Brazil','Austria','Romania',
     'Serbia','Montenagro','Bosnia','Hungary','Latvia','Russia','China','Japan','Vietnam','Mongolia',
     'Sudan','Cameroon','Somalia','Nigeria','Libya','Algeria','Tunisia','Egypt','Qatar','Australia',
-    'Apple','Orange','Kiwi','Banana','Apricot','Tangerine','Tomato','Potatoe','Scallion','Carrots'];
-    // '','','','','','','','','','',
-    // '','','','','','','','','','',
-    // '','','','','','','','','','',
-    // '','','','','','','','','','',
-    // '','','','','','','','','','',
-    // '','','','','','','','','',''];  
+    'Apple','Orange','Kiwi','Banana','Apricot','Tangerine','Tomato','Potato','Scallion','Carrots',
+    'Bicycle','Motorcycle','Train','Aeroplane','Ferry','Coach','Scooter','Helicopter','Glider','Yacht',
+     'Lion','Tiger','Elephant','Panther','Zebra','Hyena','Leopard','Giraffe','Rhinoceros','Crocodile'];    
 
 wordList = wordList.map(function(w){
     return w.toUpperCase();
 });
+
 
 let theWord = "";
 let maxTries = 6; 
@@ -70,7 +67,7 @@ function clickLetter(){
     }
     else{        
         incrementWrongAnswer();      
-        hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`; 
+        hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`;       
     }
     this.disabled = true;
     let guessCount = document.querySelector('.guess-count b');
