@@ -144,15 +144,15 @@ function giveHint(theWord){
     let hintText = document.getElementById('hint');
    
     if(countries.includes(theWord)){
-        hintText.innerText = `Hint: Its somewhere in the world.`;
+        hintText.innerText = `Hint: It's somewhere in the world.`;
     }
     else if(food.includes(theWord)){
-        hintText.innerText = `Hint: Its somehthing you can eat.`;
+        hintText.innerText = `Hint: It's something you can eat.`;
     }
     else if(transport.includes(theWord)){
         hintText.innerText = `Hint: You can use it to travel.`;
     }
     else if(animals.includes(theWord)){
-        hintText.innerText = `Hint: Its a living creature.`;
+        hintText.innerText = `Hint: It's a living creature.`;
     }    
 }
