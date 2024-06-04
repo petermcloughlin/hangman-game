@@ -67,6 +67,13 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+.game-tools #hint{
+    align-items: center;
+    text-align: center;
+    justify-content: center;    
+    margin-top: 50px;
+    padding: 10px;
+}
 .keyboard button {
     width:calc(100% / 9 - 5px);
     color: #ffffff;

@@ -6,12 +6,31 @@ let wordList = [
     'Sudan','Cameroon','Somalia','Nigeria','Libya','Algeria','Tunisia','Egypt','Qatar','Australia',
     'Apple','Orange','Kiwi','Banana','Apricot','Tangerine','Tomato','Potato','Scallion','Carrots',
     'Bicycle','Motorcycle','Train','Aeroplane','Ferry','Coach','Scooter','Helicopter','Glider','Yacht',
-     'Lion','Tiger','Elephant','Panther','Zebra','Hyena','Leopard','Giraffe','Rhinoceros','Crocodile'];    
+     'Alligator','Tiger','Elephant','Panther','Zebra','Hyena','Leopard','Giraffe','Rhinoceros','Crocodile'];   
 
 wordList = wordList.map(function(w){
     return w.toUpperCase();
 });
-
+let countries = ['Canada','Ireland','England','Scotland','Wales','Denmark','Sweden','Finland','Norway','Netherlands',
+'France','Spain','Germany','Italy','Croatia','USA','Mexico','Cuba','Estonia','Lithuania',
+'Georgia','Ukraine','Portugal','Switzerland','Poland','Bolivia','Argentina','Brazil','Austria','Romania',
+'Serbia','Montenagro','Bosnia','Hungary','Latvia','Russia','China','Japan','Vietnam','Mongolia',
+'Sudan','Cameroon','Somalia','Nigeria','Libya','Algeria','Tunisia','Egypt','Qatar','Australia'];
+countries = countries.map(function(c){
+    return c.toUpperCase();
+})
+let food = ['Apple','Orange','Kiwi','Banana','Apricot','Tangerine','Tomato','Potato','Scallion','Carrots'];
+food = food.map(function(f){
+    return f.toUpperCase();
+})
+let transport = ['Bicycle','Motorcycle','Train','Aeroplane','Ferry','Coach','Scooter','Helicopter','Glider','Yacht'];
+transport = transport.map(function(t){
+    return t.toUpperCase();
+})
+let animals = ['Alligator','Tiger','Elephant','Panther','Zebra','Hyena','Leopard','Giraffe','Rhinoceros','Crocodile'];
+animals = animals.map(function(a){
+    return a.toUpperCase();
+})
 
 let theWord = "";
 let maxTries = 6; 
@@ -69,6 +88,9 @@ function clickLetter(){
         incrementWrongAnswer();      
         hangmanBody.src = `assets/images/hangman-${incorrectGuessCount}.svg`;       
     }
+    if(incorrectGuessCount > 4){
+        giveHint(theWord);
+    }
     this.disabled = true;
     let guessCount = document.querySelector('.guess-count b');
     guessCount.innerText = `${incorrectGuessCount} / ${maxTries}`;
@@ -98,8 +120,7 @@ function displayLost(){
         if(confirm(`Hard luck!\nThe correct word was: ${theWord}\nDo you want to play again?`) == true){
             resetGame();
         }
-    }, 1000);
-    
+    }, 1000);   
 }
 
 function resetGame(){
@@ -115,4 +136,23 @@ function resetGame(){
     for(let btn of keyboardButtons){
         btn.disabled = false;
     }
+
+    let hintText = document.getElementById('hint');
+    hintText.innerText = "";
+}
+function giveHint(theWord){
+    let hintText = document.getElementById('hint');
+   
+    if(countries.includes(theWord)){
+        hintText.innerText = `Hint: Its somewhere in the world.`;
+    }
+    else if(food.includes(theWord)){
+        hintText.innerText = `Hint: Its somehthing you can eat.`;
+    }
+    else if(transport.includes(theWord)){
+        hintText.innerText = `Hint: You can use it to travel.`;
+    }
+    else if(animals.includes(theWord)){
+        hintText.innerText = `Hint: Its a living creature.`;
+    }    
 }
