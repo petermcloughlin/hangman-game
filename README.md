@@ -128,7 +128,7 @@ I used GitHub pages for deployment of the web project at an early stage of the d
 * I selected the main branch and root folder under the Build and Deployment section
 * Once saved, the deployment process ran and the saved link appeared.
 
-Here is a link to the live website , [hangman-skywatcgame](https://petermcloughlin.github.io/hangman-game/)
+Here is a link to the live website , [hangman-game](https://petermcloughlin.github.io/hangman-game/)
 
 ## Bugs / Fixes
 During the development process, I fixed any bugs or issues as I encountered them, using incremental steps of code addition whilst constantly checking the live output in GitPod, prior to committing to GitHub.
@@ -145,4 +145,4 @@ The following are credits for the sources of code, imagery and font sourced for 
 
 
 ## Summary
-In summary, I would like to again thank my mentor Alan for his wise and  useful hints and tips for the future and for some useful links and tools to improve the design process regarding UI/UX. I had trouble trying to amend the welcome modal to re-use it for the success and failure messages at the end of the game, however upon reflection, it came down to a missing 'show' and 'hidden' css class that I was trying to refer to in the code initially. Upon relfection, and after some manual testing with family and friends, I decided to keep the javascript confirm pop up messages as the content was received well by the users who tested for me. 
+In summary, I would like to again thank my mentor Alan for his wise and  useful hints and tips for the future and for some useful links and tools to improve the design process regarding UI/UX. I had trouble trying to amend the welcome modal to re-use it for the success and failure messages at the end of the game, however upon reflection, it came down to a missing 'show' and 'hidden' css class that I was trying to refer to in the code initially. Upon reflection, and after some manual testing with family and friends, I decided to keep the javascript confirm pop up messages as the content was received well by the users who tested for me. 
